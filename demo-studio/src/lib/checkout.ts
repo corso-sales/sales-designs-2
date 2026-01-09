@@ -1,4 +1,5 @@
 import { CheckoutJson, DemoConfig } from './types';
+import LZString from 'lz-string';
 
 /**
  * Convert DemoConfig to the full CheckoutJson schema expected by sales-designs
@@ -34,15 +35,14 @@ export function configToCheckoutJson(config: DemoConfig): CheckoutJson {
 }
 
 /**
- * Encode CheckoutJson to base64 for URL parameter
+ * Encode CheckoutJson to compressed base64 for URL parameter
+ * Uses LZ-string compression to significantly shorten the URL
  */
 export function encodeCheckout(checkoutJson: CheckoutJson): string {
   const jsonStr = JSON.stringify(checkoutJson);
-  // Use btoa for browser, Buffer for Node
-  if (typeof window !== 'undefined') {
-    return btoa(jsonStr);
-  }
-  return Buffer.from(jsonStr).toString('base64');
+  // Compress using LZ-string, then encode to base64
+  const compressed = LZString.compressToBase64(jsonStr);
+  return compressed;
 }
 
 /**
@@ -75,9 +75,18 @@ export function generateDemoUrls(
 
 /**
  * Decode a checkout parameter back to CheckoutJson
+ * Decompresses LZ-string compressed data
+ * Falls back to old base64 format for backward compatibility
  */
 export function decodeCheckout(encoded: string): CheckoutJson | null {
   try {
+    // Try decompressing (new format)
+    const decompressed = LZString.decompressFromBase64(encoded);
+    if (decompressed) {
+      return JSON.parse(decompressed);
+    }
+    
+    // Fall back to old base64 format (backward compatibility)
     const jsonStr = typeof window !== 'undefined'
       ? atob(encoded)
       : Buffer.from(encoded, 'base64').toString('utf8');
