@@ -38,27 +38,27 @@ export function HeroSection({ onImport }: HeroSectionProps) {
   };
 
   return (
-    <div className="border-b bg-muted/30">
-      <div className="container py-6">
-        <div className="flex flex-col gap-4">
-          <div>
-            <h2 className="text-sm font-medium text-foreground">Quick Import</h2>
-            <p className="text-sm text-muted-foreground">
+    <div className="w-full py-12 bg-white border-b">
+      <div className="px-6">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center">
+            <h1 className="text-2xl font-semibold">Create your product demo</h1>
+            <p className="text-sm text-muted-foreground mt-2">
               Paste a product URL to auto-fill brand and product details
             </p>
           </div>
-          <div className="flex gap-3 max-w-2xl">
+          <div className="flex gap-3 w-full mt-6">
             <Input
               type="url"
-              placeholder="https://store.com/products/example-product"
+              placeholder="https://gfuel.com/products/blue-ice"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              className="flex-1 h-10 bg-background"
+              className="flex-1 h-11"
             />
             <Button
               onClick={handleMagicImport}
               disabled={!url.trim() || isLoading}
-              className="h-10 gap-2"
+              className="h-11 gap-2"
             >
               {isLoading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

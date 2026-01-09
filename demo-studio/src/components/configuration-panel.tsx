@@ -1,12 +1,11 @@
 'use client';
 
-import { DemoConfig, BRAND_PRESETS } from '@/lib/types';
+import { DemoConfig } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+import { Box, ArrowLeftRight, ShieldCheck } from 'lucide-react';
 
 interface ConfigurationPanelProps {
   config: DemoConfig;
@@ -14,37 +13,8 @@ interface ConfigurationPanelProps {
 }
 
 export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps) {
-  const handlePreset = (presetKey: string) => {
-    const preset = BRAND_PRESETS[presetKey];
-    if (preset) {
-      onChange(preset);
-    }
-  };
-
   return (
     <div className="space-y-4">
-      {/* Quick Presets */}
-      <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="text-sm font-medium">Quick Presets</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <div className="flex flex-wrap gap-2">
-            {Object.entries(BRAND_PRESETS).map(([key, preset]) => (
-              <Button
-                key={key}
-                variant="outline"
-                size="sm"
-                onClick={() => handlePreset(key)}
-                className="h-8 text-xs"
-              >
-                {preset.storeName}
-              </Button>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Brand Identity */}
       <Card>
         <CardHeader className="pb-3">
@@ -52,7 +22,7 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
         </CardHeader>
         <CardContent className="space-y-4 pt-0">
           <div className="space-y-2">
-            <Label htmlFor="storeName" className="text-xs text-muted-foreground">
+            <Label htmlFor="storeName" className="text-xs font-medium text-muted-foreground">
               Store Name
             </Label>
             <Input
@@ -66,16 +36,17 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
           </div>
 
           <div className="space-y-2">
-            <Label className="text-xs text-muted-foreground">Brand Color</Label>
+            <Label htmlFor="brandColor" className="text-xs font-medium text-muted-foreground">
+              Brand Color
+            </Label>
             <div className="flex gap-2">
-              <div className="relative">
-                <input
-                  type="color"
-                  value={`#${config.brandColor}`}
-                  onChange={(e) => onChange({ brandColor: e.target.value.replace('#', '') })}
-                  className="w-9 h-9 rounded-md border border-input cursor-pointer"
-                />
-              </div>
+              <input
+                id="brandColor"
+                type="color"
+                value={`#${config.brandColor}`}
+                onChange={(e) => onChange({ brandColor: e.target.value.replace('#', '') })}
+                className="w-9 h-9 rounded-md border border-input cursor-pointer"
+              />
               <Input
                 type="text"
                 value={config.brandColor}
@@ -88,58 +59,79 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="brandLogo" className="text-xs text-muted-foreground">
+            <Label htmlFor="brandLogo" className="text-xs font-medium text-muted-foreground">
               Logo URL
             </Label>
-            <Input
-              id="brandLogo"
-              type="url"
-              value={config.brandLogo}
-              onChange={(e) => onChange({ brandLogo: e.target.value })}
-              placeholder="https://example.com/logo.png"
-              className="h-9"
-            />
+            <div className="flex gap-2">
+              <Input
+                id="brandLogo"
+                type="url"
+                value={config.brandLogo}
+                onChange={(e) => onChange({ brandLogo: e.target.value })}
+                placeholder="https://example.com/logo.png"
+                className="flex-1 h-9"
+              />
+              {config.brandLogo && (
+                <div className="flex-shrink-0">
+                  <img
+                    src={config.brandLogo}
+                    alt="Logo preview"
+                    className="h-9 w-9 rounded-md border border-input object-contain bg-muted"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Product Details */}
+      {/* Demo Product */}
       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-sm font-medium">Demo Product</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 pt-0">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-2">
-              <Label htmlFor="productName" className="text-xs text-muted-foreground">
-                Product Name
-              </Label>
-              <Input
-                id="productName"
-                type="text"
-                value={config.productName}
-                onChange={(e) => onChange({ productName: e.target.value })}
-                placeholder="Product Name"
-                className="h-9"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="productPrice" className="text-xs text-muted-foreground">
-                Price
-              </Label>
+          <div className="space-y-2">
+            <Label htmlFor="productName" className="text-xs font-medium text-muted-foreground">
+              Product Name
+            </Label>
+            <Input
+              id="productName"
+              type="text"
+              value={config.productName}
+              onChange={(e) => onChange({ productName: e.target.value })}
+              placeholder="Product Name"
+              className="h-9"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="productPrice" className="text-xs font-medium text-muted-foreground">
+              Price
+            </Label>
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                $
+              </span>
               <Input
                 id="productPrice"
                 type="text"
-                value={config.productPrice}
-                onChange={(e) => onChange({ productPrice: e.target.value })}
-                placeholder="$99.00"
-                className="h-9"
+                value={config.productPrice.replace('$', '')}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/[^0-9.]/g, '');
+                  onChange({ productPrice: value ? `$${value}` : '' });
+                }}
+                placeholder="99.00"
+                className="h-9 pl-7"
               />
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="productDesc" className="text-xs text-muted-foreground">
+            <Label htmlFor="productDesc" className="text-xs font-medium text-muted-foreground">
               Product Description
             </Label>
             <Input
@@ -147,62 +139,45 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
               type="text"
               value={config.productDesc}
               onChange={(e) => onChange({ productDesc: e.target.value })}
-              placeholder="Size: 10 | Color: Black"
+              placeholder="Size, color, variant..."
               className="h-9"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="productImage" className="text-xs text-muted-foreground">
+            <Label htmlFor="productImage" className="text-xs font-medium text-muted-foreground">
               Product Image URL
             </Label>
-            <Input
-              id="productImage"
-              type="url"
-              value={config.productImage}
-              onChange={(e) => onChange({ productImage: e.target.value })}
-              placeholder="https://example.com/product.png"
-              className="h-9"
-            />
-          </div>
-
-          <Separator className="my-2" />
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-2">
-              <Label htmlFor="exchangeProductName" className="text-xs text-muted-foreground">
-                Exchange Product
-              </Label>
+            <div className="flex gap-2">
               <Input
-                id="exchangeProductName"
-                type="text"
-                value={config.exchangeProductName}
-                onChange={(e) => onChange({ exchangeProductName: e.target.value })}
-                placeholder="Alternate Product"
-                className="h-9"
+                id="productImage"
+                type="url"
+                value={config.productImage}
+                onChange={(e) => onChange({ productImage: e.target.value })}
+                placeholder="https://example.com/product.png"
+                className="flex-1 h-9"
               />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="exchangeProductOptionLabel" className="text-xs text-muted-foreground">
-                Option Label
-              </Label>
-              <Input
-                id="exchangeProductOptionLabel"
-                type="text"
-                value={config.exchangeProductOptionLabel}
-                onChange={(e) => onChange({ exchangeProductOptionLabel: e.target.value })}
-                placeholder="Size"
-                className="h-9"
-              />
+              {config.productImage && (
+                <div className="flex-shrink-0">
+                  <img
+                    src={config.productImage}
+                    alt="Product preview"
+                    className="h-9 w-9 rounded-md border border-input object-contain bg-muted"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Features */}
+      {/* Demo Features */}
       <Card>
         <CardHeader className="pb-3">
-          <CardTitle className="text-sm font-medium">Features to Demo</CardTitle>
+          <CardTitle className="text-sm font-medium">Demo Features</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 pt-0">
           <div className="flex items-center space-x-3">
@@ -211,8 +186,9 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
               checked={config.showShipping}
               onCheckedChange={(checked) => onChange({ showShipping: !!checked })}
             />
-            <Label htmlFor="showShipping" className="text-sm font-normal cursor-pointer">
-              Shipping Issues
+            <Label htmlFor="showShipping" className="text-sm font-normal cursor-pointer flex items-center gap-2">
+              <Box className="h-4 w-4 text-muted-foreground" />
+              Shipping Protection
             </Label>
           </div>
 
@@ -222,7 +198,8 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
               checked={config.showReturns}
               onCheckedChange={(checked) => onChange({ showReturns: !!checked })}
             />
-            <Label htmlFor="showReturns" className="text-sm font-normal cursor-pointer">
+            <Label htmlFor="showReturns" className="text-sm font-normal cursor-pointer flex items-center gap-2">
+              <ArrowLeftRight className="h-4 w-4 text-muted-foreground" />
               Returns & Exchanges
             </Label>
           </div>
@@ -233,21 +210,9 @@ export function ConfigurationPanel({ config, onChange }: ConfigurationPanelProps
               checked={config.showWarranties}
               onCheckedChange={(checked) => onChange({ showWarranties: !!checked })}
             />
-            <Label htmlFor="showWarranties" className="text-sm font-normal cursor-pointer">
-              Warranties
-            </Label>
-          </div>
-
-          <Separator className="my-2" />
-
-          <div className="flex items-center space-x-3">
-            <Checkbox
-              id="showNextButton"
-              checked={config.showNextButton}
-              onCheckedChange={(checked) => onChange({ showNextButton: !!checked })}
-            />
-            <Label htmlFor="showNextButton" className="text-sm font-normal cursor-pointer">
-              Show Next Navigation
+            <Label htmlFor="showWarranties" className="text-sm font-normal cursor-pointer flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-muted-foreground" />
+              Warranty Claims
             </Label>
           </div>
         </CardContent>
