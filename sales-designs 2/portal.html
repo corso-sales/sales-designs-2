@@ -1,0 +1,556 @@
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --corso-primary: #000000;
+        --corso-surface: #000000;
+        --corso-primary-on-container: #000000;
+        --corso-on-primary: #ffffff;
+        --corso-banner: #edeae5;
+        --corso-header-img-url: url("https://cdn.corso.com/img/Corso_Horizontal-Lockup_Black.png");
+        --corso-banner-img-url: url("");
+      }
+    </style>
+    <title>Customer Portal</title>
+    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="customer-portal.css">
+  </head>
+  <body id="crew" class="overscroll-none ready">
+    <div id="root">
+      <div
+        class="h-full"
+        data-sentry-component="AppShell"
+        data-sentry-source-file="app-shell-component.tsx"
+      >
+        <div class="relative grid h-full grid-rows-[min-content_1fr]">
+          <header
+            class="flex min-h-16 flex-col items-center justify-center bg-white shadow"
+            data-sentry-component="Header"
+            data-sentry-source-file="app-shell-component.tsx"
+          >
+            <span
+              aria-label="Go to Order look up"
+              data-sentry-element="Link"
+              data-sentry-source-file="link-button.tsx"
+              class="inline-flex items-center justify-center rounded-md border border-transparent font-medium hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed focus:outline focus:outline-primary focus:outline-2 focus:outline-offset-2 p-0 text-primary-on-container shadow-none hover:underline focus:underline my-3 h-10 w-full max-w-md"
+              data-sentry-component="LinkButton"
+            >
+              <div
+                class="h-full w-full bg-header-logo bg-contain bg-center bg-no-repeat"
+                data-testid="header-logo"
+              ></div>
+            </span>
+          </header>
+          <div
+            class="h-auto bg-banner bg-cover bg-fixed text-base md:bg-banner-img"
+            data-sentry-component="Body"
+            data-sentry-source-file="app-shell-component.tsx"
+          >
+            <div class="mx-auto h-auto max-w-3xl p-2">
+              <div
+                id="app-body"
+                class="relative h-auto w-full rounded-none border border-gray-200 bg-gray-50 px-4 py-8 shadow md:block md:rounded-lg"
+              >
+                <nav
+                  class="-mx-4 -mt-8 mb-4 rounded-t-md p-4 text-gray-800"
+                  data-sentry-component="AppBar"
+                  data-sentry-source-file="app-shell-component.tsx"
+                >
+                  <div
+                    class="flex flex-col items-center justify-between gap-1 md:flex-row"
+                  >
+                    <div
+                      class="flex w-full items-center justify-between gap-1 md:w-auto"
+                    >
+                      <span
+                        data-sentry-element="Link"
+                        data-sentry-source-file="link-button.tsx"
+                        class="inline-flex items-center justify-center rounded-md border border-transparent font-medium hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed focus:outline focus:outline-primary focus:outline-2 focus:outline-offset-2 shadow-none hover:underline focus:underline text-gray-800 hover:text-gray-600 p-1 text-sm"
+                        data-sentry-component="LinkButton"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fal"
+                          data-icon="magnifying-glass"
+                          class="svg-inline--fa fa-magnifying-glass size-4 mr-1"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          data-sentry-element="FontAwesomeIcon"
+                          data-sentry-component="Icon"
+                          data-sentry-source-file="icon.tsx"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M384 208A176 176 0 1 0 32 208a176 176 0 1 0 352 0zM343.3 366C307 397.2 259.7 416 208 416C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208c0 51.7-18.8 99-50 135.3L507.3 484.7c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0L343.3 366z"
+                          ></path>
+                        </svg>
+                        Search
+                      </span>
+                    </div>
+                    <div
+                      class="flex w-full justify-between gap-1 px-1 text-xs font-medium md:w-auto md:flex-col md:px-0 md:text-right"
+                    >
+                      <span>Order: #3183</span
+                      ><span
+                        >Order Date:
+                        <span id="orderDate">Nov 4, 2024</span></span
+                      >
+                    </div>
+                  </div>
+                </nav>
+                <main id="cPortalHub" class="flex-1">
+                  <section
+                    class="flex flex-col gap-4"
+                    data-sentry-component="Page"
+                    data-sentry-source-file="page.tsx"
+                  >
+                    <div class="px-4 sr-only">
+                      <h1 class="text-center text-2xl text-gray-800">
+                        Order Overview
+                      </h1>
+                    </div>
+                    <section
+                      aria-labelledby=""
+                      class="flex flex-col gap-6 rounded-md border border-gray-200 bg-white p-4 shadow-sm md:p-8"
+                      data-sentry-component="Card"
+                      data-sentry-source-file="card.tsx"
+                    >
+                      <div class="flex flex-col gap-4">
+                        <section
+                          class="flex flex-col gap-4"
+                          data-testid="5993"
+                          data-sentry-component="TrackingDisplay"
+                          data-sentry-source-file="order-tracking-component.tsx"
+                        >
+                          <h3 class="sr-only">Order Tracking</h3>
+
+                          <div
+                            class="text-gray-800"
+                            data-sentry-component="StatusDisplay"
+                            data-sentry-source-file="order-tracking-component.tsx"
+                          >
+                            <p class="text-xs font-medium uppercase">
+                              Delivered On
+                            </p>
+                            <p
+                              class="text-2xl font-medium tracking-tight md:text-4xl"
+                            >
+                              <span id="deliveredOnDate">Nov 4, 2024</span>,
+                              7:08 PM
+                            </p>
+                            <p class="text-sm text-gray-500 md:text-base">
+                              Delivered
+                            </p>
+                          </div>
+                          <hr
+                            class="border-outline"
+                            data-sentry-component="Divider"
+                            data-sentry-source-file="divider.tsx"
+                          />
+                          <details
+                            class="bg-white"
+                            data-sentry-component="Disclosure"
+                            data-sentry-source-file="disclosure.tsx"
+                          >
+                            <summary
+                              role="button"
+                              class="flex cursor-pointer list-none items-center gap-2 rounded marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&amp;::-webkit-details-marker]:hidden"
+                            >
+                              <div
+                                class="text-sm"
+                                data-sentry-component="Event"
+                                data-sentry-source-file="order-tracking-component.tsx"
+                              >
+                                <div class="font-medium text-gray-800">
+                                  <span id="trackingHistoryDate"
+                                    >Nov 4, 2024</span
+                                  >
+                                </div>
+                                <div class="text-gray-500">
+                                  Delivered - Shipment has been delivered
+                                </div>
+                              </div>
+                              <span
+                                class="ml-auto text-sm text-primary-on-container hover:underline"
+                                >View</span
+                              >
+                            </summary>
+                            <div>
+                              <ul class="mt-4 divide-y divide-outline">
+                                <li class="py-2">
+                                  <div
+                                    class="text-sm"
+                                    data-sentry-component="Event"
+                                    data-sentry-source-file="order-tracking-component.tsx"
+                                  >
+                                    <div
+                                      id="trackingHistoryDate2"
+                                      class="font-medium text-gray-800"
+                                    >
+                                      Nov 4, 2024
+                                    </div>
+                                    <div class="text-gray-500">
+                                      In Transit - Shipment is in transit
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="py-2">
+                                  <div
+                                    class="text-sm"
+                                    data-sentry-component="Event"
+                                    data-sentry-source-file="order-tracking-component.tsx"
+                                  >
+                                    <div
+                                      id="trackingHistoryDate3"
+                                      class="font-medium text-gray-800"
+                                    >
+                                      Nov 3, 2024
+                                    </div>
+                                    <div class="text-gray-500">
+                                      Getting Ready To Ship - Label has been
+                                      generated
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </details>
+                          <hr
+                            class="border-outline"
+                            data-sentry-component="Divider"
+                            data-sentry-source-file="divider.tsx"
+                          />
+                          <div
+                            class="grid grid-cols-[2.4rem_auto] grid-rows-2 gap-x-2"
+                            data-sentry-component="CarrierDetail"
+                            data-sentry-source-file="order-tracking-component.tsx"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              data-prefix="fab"
+                              data-icon="usps"
+                              class="svg-inline--fa fa-usps row-span-2 size-10"
+                              role="img"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 576 512"
+                              data-sentry-element="FontAwesomeIcon"
+                              data-sentry-component="Icon"
+                              data-sentry-source-file="icon.tsx"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M460.3 241.7c25.8-41.3 15.2-48.8-11.7-48.8h-27c-.1 0-1.5-1.4-10.9 8-11.2 5.6-37.9 6.3-37.9 8.7 0 4.5 70.3-3.1 88.1 0 9.5 1.5-1.5 20.4-4.4 32-.5 4.5 2.4 2.3 3.8.1zm-112.1 22.6c64-21.3 97.3-23.9 102-26.2 4.4-2.9-4.4-6.6-26.2-5.8-51.7 2.2-137.6 37.1-172.6 53.9l-30.7-93.3h196.6c-2.7-28.2-152.9-22.6-337.9-22.6L27 415.8c196.4-97.3 258.9-130.3 321.2-151.5zM94.7 96c253.3 53.7 330 65.7 332.1 85.2 36.4 0 45.9 0 52.4 6.6 21.1 19.7-14.6 67.7-14.6 67.7-4.4 2.9-406.4 160.2-406.4 160.2h423.1L549 96z"
+                              ></path>
+                            </svg>
+                            <span class="text-sm font-medium">USPS</span
+                            ><span
+                              rel="noreferrer"
+                              data-sentry-element="Link"
+                              data-sentry-source-file="link-button.tsx"
+                              class="inline-flex items-center justify-center rounded-md border border-transparent font-medium hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed focus:outline focus:outline-primary focus:outline-2 focus:outline-offset-2 p-0 text-primary-on-container shadow-none hover:underline focus:underline w-fit text-sm"
+                              data-sentry-component="LinkButton"
+                              target="_blank"
+                              >9261290318446315187969</span
+                            >
+                          </div>
+                          <hr
+                            class="border-outline"
+                            data-sentry-component="Divider"
+                            data-sentry-source-file="divider.tsx"
+                          />
+                          <details
+                            class="bg-white"
+                            data-sentry-component="Disclosure"
+                            data-sentry-source-file="disclosure.tsx"
+                          >
+                            <summary
+                              role="button"
+                              class="flex cursor-pointer list-none items-center gap-2 rounded marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&amp;::-webkit-details-marker]:hidden"
+                            >
+                              <span
+                                class="flex items-center gap-2 text-sm font-medium text-gray-800"
+                                >1 item in this shipment</span
+                              ><span
+                                class="ml-auto text-sm text-primary-on-container hover:underline"
+                                >View</span
+                              >
+                            </summary>
+                            <div>
+                              <div class="mt-8 space-y-4">
+                                <article
+                                  class="flex flex-col gap-8 sm:flex-row sm:items-center"
+                                  aria-labelledby=":r1:"
+                                >
+                                  <div class="flex w-full items-center gap-4">
+                                    <div
+                                      class="relative rounded flex-shrink-0 self-start"
+                                      data-sentry-component="ProductImage"
+                                      data-sentry-source-file="product-image.tsx"
+                                    >
+                                      <img
+                                        id="trackingProductImage"
+                                        src="https://cdn.shopify.com/s/files/1/0732/6125/2917/files/RLMDCN-GRY-01_MethodLuggageCheckIn_GREY_NOMATIC_05_MAIN.webp?v=1730222985"
+                                        alt="Method Luggage Carry-On"
+                                        class="rounded border border-outline object-contain size-12"
+                                      /><span
+                                        class="inline-flex max-w-max items-center gap-x-1 whitespace-nowrap rounded-full border px-2 py-[0.15rem] text-xs bg-gray-50 border-outline text-gray-800 absolute -right-2 -top-2"
+                                        data-sentry-component="Badge"
+                                        data-sentry-source-file="badge.tsx"
+                                        ><span class="sr-only">Quantity</span
+                                        ><span>1</span></span
+                                      >
+                                    </div>
+                                    <div
+                                      class="flex w-full flex-col gap-1 text-sm font-medium text-gray-500"
+                                    >
+                                      <div
+                                        class="flex w-full justify-between text-gray-800"
+                                      >
+                                        <span id="trackingProductName"
+                                          >Method Luggage Carry-On</span
+                                        >
+                                      </div>
+                                      <span class="font-normal"></span>
+                                    </div>
+                                  </div>
+                                </article>
+                              </div>
+                            </div>
+                          </details>
+                        </section>
+                      </div>
+                    </section>
+
+                    <section aria-labelledby=":r1:" class="flex flex-col gap-6 rounded-md border border-gray-200 bg-white p-4 shadow-xs md:p-8" data-sentry-component="Card" data-sentry-source-file="Card.tsx">
+                      <header class="sr-only">
+                        <div class="">
+                          <h2 id=":r1:" class="text-left heading-sm text-gray-900">Order Edit</h2>
+                        </div>
+                      </header>
+                      <section class="grid w-full auto-rows-auto items-center gap-4 sm:gap-y-0 grid-cols-1 has-[.media]:grid-cols-[3.5rem_1fr] has-[.action]:sm:grid-cols-[1fr_15rem] sm:has-[.media]:has-[.action]:grid-cols-[3.5rem_1fr_15rem] has-[.media]:[grid-template-areas:&quot;media&quot;] has-[.media]:has-[.header]:[grid-template-areas:&quot;media_header&quot;] has-[.media]:has-[.header]:has-[.action]:[grid-template-areas:&quot;media_header&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.header]:has-[.action]:[grid-template-areas:&quot;media_header_action&quot;] has-[.media]:has-[.content]:[grid-template-areas:&quot;media_content&quot;] has-[.media]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_content&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_content_action&quot;] has-[.media]:has-[.header]:has-[.content]:[grid-template-areas:&quot;media_header&quot;_&quot;._content&quot;] has-[.media]:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_header&quot;_&quot;._content&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_header_action&quot;_&quot;._content_.&quot;] has-[.header]:[grid-template-areas:&quot;header&quot;] has-[.header]:has-[.action]:[grid-template-areas:&quot;header&quot;_&quot;action&quot;] sm:has-[.header]:has-[.action]:[grid-template-areas:&quot;header_action&quot;] has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;header&quot;_&quot;content&quot;_&quot;action&quot;] sm:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;header_action&quot;_&quot;content_.&quot;] has-[.content]:[grid-template-areas:&quot;content&quot;] has-[.content]:has-[.action]:[grid-template-areas:&quot;content&quot;_&quot;action&quot;] sm:has-[.content]:has-[.action]:[grid-template-areas:&quot;content_action&quot;]" aria-labelledby="luid-0" aria-describedby="luid-1" data-sentry-component="CardSectionRoot" data-sentry-source-file="CardSection.tsx">
+                        <figure class="media flex justify-center justify-self-center text-gray-900 [grid-area:media]" data-sentry-component="CardSectionMedia" data-sentry-source-file="CardSection.tsx">
+                          <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="pen-to-square" class="svg-inline--fa fa-pen-to-square size-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-sentry-element="FontAwesomeIcon" data-sentry-component="Icon" data-sentry-source-file="Icon.tsx">
+                            <path fill="currentColor" d="M454.6 45.3l12.1 12.1c12.5 12.5 12.5 32.8 0 45.3L440 129.4 382.6 72l26.7-26.7c12.5-12.5 32.8-12.5 45.3 0zM189 265.6l171-171L417.4 152l-171 171c-4.2 4.2-9.6 7.2-15.4 8.6l-65.6 15.1L180.5 281c1.3-5.8 4.3-11.2 8.6-15.4zm197.7-243L166.4 243c-8.5 8.5-14.4 19.2-17.1 30.9l-20.9 90.6c-1.2 5.4 .4 11 4.3 14.9s9.5 5.5 14.9 4.3l90.6-20.9c11.7-2.7 22.4-8.6 30.9-17.1L489.4 125.3c25-25 25-65.5 0-90.5L477.3 22.6c-25-25-65.5-25-90.5 0zM80 64C35.8 64 0 99.8 0 144L0 432c0 44.2 35.8 80 80 80l288 0c44.2 0 80-35.8 80-80l0-128c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 128c0 26.5-21.5 48-48 48L80 480c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48l128 0c8.8 0 16-7.2 16-16s-7.2-16-16-16L80 64z"></path>
+                          </svg>
+                        </figure>
+                        <header class="header [grid-area:header]" data-sentry-component="CardSectionHeader" data-sentry-source-file="CardSection.tsx">
+                          <div id="luid-0" class="subheading-md text-gray-900" data-sentry-component="CardSectionTitle" data-sentry-source-file="CardSection.tsx">Edit Order</div>
+                          <div id="luid-1" class="body-md text-gray-600" data-sentry-component="CardSectionDescription" data-sentry-source-file="CardSection.tsx">Request changes to your order, such as cancellation or address update.</div>
+                        </header>
+                        <div class="action grid grid-cols-1 [grid-area:action] *:w-full" data-sentry-component="CardSectionAction" data-sentry-source-file="CardSection.tsx"><a class="label-lg inline-flex items-center justify-center rounded-md border px-4 py-2 shadow-xs hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer focus:outline-solid focus:outline-primary focus:outline-2 focus:outline-offset-2 border-primary bg-transparent text-primary-on-container hover:bg-surface w-full shrink-0 md:w-60" data-sentry-element="Link" data-sentry-component="LinkButton" data-sentry-source-file="LinkButton.tsx" href="/luna-qa/order/11754906059118/edit">Edit Order</a></div>
+                      </section>
+                    </section>
+
+                    <section
+                      aria-labelledby=":r2:"
+                      class="flex flex-col gap-6 rounded-md border border-gray-200 bg-white p-4 shadow-sm md:p-8"
+                      data-sentry-component="Card"
+                      data-sentry-source-file="card.tsx"
+                    >
+                      <header class="sr-only">
+                        <div class="">
+                          <h2
+                            id=":r2:"
+                            class="text-left text-xl font-medium text-gray-800"
+                          >
+                            Order Claim Information
+                          </h2>
+                        </div>
+                      </header>
+                      <div class="flex flex-col gap-4">
+                        <section id="hubShippingIssue" style="display:none" class="grid w-full auto-rows-auto items-center gap-4 sm:gap-y-0 grid-cols-1 has-[.media]:grid-cols-[3.5rem_1fr] has-[.action]:sm:grid-cols-[1fr_15rem] sm:has-[.media]:has-[.action]:grid-cols-[3.5rem_1fr_15rem] has-[.media]:[grid-template-areas:&quot;media&quot;] has-[.media]:has-[.header]:[grid-template-areas:&quot;media_header&quot;] has-[.media]:has-[.header]:has-[.action]:[grid-template-areas:&quot;media_header&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.header]:has-[.action]:[grid-template-areas:&quot;media_header_action&quot;] has-[.media]:has-[.content]:[grid-template-areas:&quot;media_content&quot;] has-[.media]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_content&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_content_action&quot;] has-[.media]:has-[.header]:has-[.content]:[grid-template-areas:&quot;media_header&quot;_&quot;._content&quot;] has-[.media]:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_header&quot;_&quot;._content&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_header_action&quot;_&quot;._content_.&quot;] has-[.header]:[grid-template-areas:&quot;header&quot;] has-[.header]:has-[.action]:[grid-template-areas:&quot;header&quot;_&quot;action&quot;] sm:has-[.header]:has-[.action]:[grid-template-areas:&quot;header_action&quot;] has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;header&quot;_&quot;content&quot;_&quot;action&quot;] sm:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;header_action&quot;_&quot;content_.&quot;] has-[.content]:[grid-template-areas:&quot;content&quot;] has-[.content]:has-[.action]:[grid-template-areas:&quot;content&quot;_&quot;action&quot;] sm:has-[.content]:has-[.action]:[grid-template-areas:&quot;content_action&quot;]" aria-labelledby="luid-2" aria-describedby="luid-3" data-sentry-component="CardSectionRoot" data-sentry-source-file="CardSection.tsx"><figure class="media flex justify-center justify-self-center text-gray-900 [grid-area:media]" data-sentry-component="CardSectionMedia" data-sentry-source-file="CardSection.tsx"><img class="size-14 shrink-0" alt="Green Shipping Protection" src="https://cdn.corso.com/img/Default%20box.png" aria-hidden="true"></figure><header class="header [grid-area:header]" data-sentry-component="CardSectionHeader" data-sentry-source-file="CardSection.tsx"><div id="luid-2" class="subheading-md text-gray-900" data-sentry-component="CardSectionTitle" data-sentry-source-file="CardSection.tsx">Shipping Issues</div><div id="luid-3" class="body-md text-gray-600" data-sentry-component="CardSectionDescription" data-sentry-source-file="CardSection.tsx">Your order has shipping protection. Report a shipping issue to request a replacement.</div></header><div class="action grid grid-cols-1 [grid-area:action] *:w-full" data-sentry-component="CardSectionAction" data-sentry-source-file="CardSection.tsx"><a class="label-lg inline-flex items-center justify-center rounded-md border px-4 py-2 shadow-xs hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer focus:outline-solid focus:outline-primary focus:outline-2 focus:outline-offset-2 border-primary bg-transparent text-primary-on-container hover:bg-surface" data-sentry-element="Link" data-sentry-component="LinkButton" data-sentry-source-file="LinkButton.tsx" href="/luna-qa/reorder/11752745501038">Report Shipping Issue</a></div></section>
+                        <section id="hubReturnsAndWarranties" style="display:none" class="grid w-full auto-rows-auto items-center gap-4 sm:gap-y-0 grid-cols-1 has-[.media]:grid-cols-[3.5rem_1fr] has-[.action]:sm:grid-cols-[1fr_15rem] sm:has-[.media]:has-[.action]:grid-cols-[3.5rem_1fr_15rem] has-[.media]:[grid-template-areas:&quot;media&quot;] has-[.media]:has-[.header]:[grid-template-areas:&quot;media_header&quot;] has-[.media]:has-[.header]:has-[.action]:[grid-template-areas:&quot;media_header&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.header]:has-[.action]:[grid-template-areas:&quot;media_header_action&quot;] has-[.media]:has-[.content]:[grid-template-areas:&quot;media_content&quot;] has-[.media]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_content&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_content_action&quot;] has-[.media]:has-[.header]:has-[.content]:[grid-template-areas:&quot;media_header&quot;_&quot;._content&quot;] has-[.media]:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_header&quot;_&quot;._content&quot;_&quot;._action&quot;] sm:has-[.media]:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;media_header_action&quot;_&quot;._content_.&quot;] has-[.header]:[grid-template-areas:&quot;header&quot;] has-[.header]:has-[.action]:[grid-template-areas:&quot;header&quot;_&quot;action&quot;] sm:has-[.header]:has-[.action]:[grid-template-areas:&quot;header_action&quot;] has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;header&quot;_&quot;content&quot;_&quot;action&quot;] sm:has-[.header]:has-[.content]:has-[.action]:[grid-template-areas:&quot;header_action&quot;_&quot;content_.&quot;] has-[.content]:[grid-template-areas:&quot;content&quot;] has-[.content]:has-[.action]:[grid-template-areas:&quot;content&quot;_&quot;action&quot;] sm:has-[.content]:has-[.action]:[grid-template-areas:&quot;content_action&quot;]" aria-labelledby="luid-4" aria-describedby="luid-5" data-sentry-component="CardSectionRoot" data-sentry-source-file="CardSection.tsx"><figure class="media flex justify-center justify-self-center text-gray-900 [grid-area:media]" data-sentry-component="CardSectionMedia" data-sentry-source-file="CardSection.tsx"><svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right-arrow-left" class="svg-inline--fa fa-arrow-right-arrow-left size-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-sentry-element="FontAwesomeIcon" data-sentry-component="Icon" data-sentry-source-file="Icon.tsx"><path fill="currentColor" d="M443.3 139.3c6.2-6.2 6.2-16.4 0-22.6l-96-96c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 112 16 112c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0-68.7 68.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l96-96zm-342.6 352c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L54.6 400 432 400c8.8 0 16-7.2 16-16s-7.2-16-16-16L54.6 368l68.7-68.7c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-96 96c-6.2 6.2-6.2 16.4 0 22.6l96 96z"></path></svg></figure><header class="header [grid-area:header]" data-sentry-component="CardSectionHeader" data-sentry-source-file="CardSection.tsx"><div id="luid-4" class="subheading-md text-gray-900" data-sentry-component="CardSectionTitle" data-sentry-source-file="CardSection.tsx">Returns &amp; Warranties</div><div id="luid-5" class="body-md text-gray-600" data-sentry-component="CardSectionDescription" data-sentry-source-file="CardSection.tsx">Create a request to return an item or start a warranties claim.</div></header><div class="action grid grid-cols-1 [grid-area:action] *:w-full" data-sentry-component="CardSectionAction" data-sentry-source-file="CardSection.tsx"><div class="flex w-full flex-col gap-4"><a class="label-lg inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 shadow-xs hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer focus:outline-solid focus:outline-primary focus:outline-2 focus:outline-offset-2 bg-primary text-on-primary" data-sentry-element="Link" data-sentry-component="LinkButton" data-sentry-source-file="LinkButton.tsx" href="/luna-qa/order/11752745501038/new-request">Start New Request</a></div></div></section>
+                      </div>
+                    </section>
+                  </section>
+				  
+                </main>
+
+                <footer
+                  class="mt-8 flex flex-col items-stretch justify-between space-x-4 md:flex-row"
+                  data-testid="app-footer"
+                  data-sentry-component="Footer"
+                  data-sentry-source-file="app-shell-component.tsx"
+                >
+                  <div
+                    class="flex items-center justify-center text-center md:justify-start md:text-left"
+                  >
+                    <p class="text-xs">
+                      Need help with? Contact us at support@<span
+                      id="emailAddressBrandName"
+                      style="text-transform: lowercase"
+                      >ooni</span
+                    >.com
+                    </p>
+                  </div>
+                  <div
+                    class="mt-8 flex items-center justify-center text-xs md:mt-0 md:justify-start"
+                  >
+                    <span class="w-14"
+                      ><a
+                        rel="noreferrer"
+                        data-sentry-element="Link"
+                        data-sentry-source-file="link-button.tsx"
+                        class="inline-flex items-center justify-center rounded-md border border-transparent font-medium hover:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed focus:outline focus:outline-primary focus:outline-2 focus:outline-offset-2 p-0 text-primary-on-container shadow-none hover:underline focus:underline"
+                        data-sentry-component="LinkButton"
+                        href="https://corso.com/returns-exchanges"
+                        target="_blank"
+                        ><img
+                          alt="Corso Logo"
+                          src="https://corso-media.sfo3.cdn.digitaloceanspaces.com/img/corso-logo.png" /></a
+                    ></span>
+                  </div>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get the encoded checkout url paramater
+      const params = new URLSearchParams(window.location.search);
+      const checkoutParams = params.get("checkout");
+
+      // Decode and Parse
+      const decodedCheckoutParams = atob(checkoutParams);
+      const checkoutJson = JSON.parse(decodedCheckoutParams);
+
+      console.log("checkoutJson", checkoutJson);
+
+      // turn url into usable variables
+      const {
+        rates,
+        brandColor,
+        brandLogo,
+        productName,
+        productDesc,
+        productPrice,
+        productImage,
+        checkbox,
+        checkboxLabel,
+        checkboxDesc,
+        storeName,
+		showProducts,
+      } = checkoutJson;
+
+      // Get today's date
+      const today = new Date();
+
+      // Get yesterday's date
+      const yesterday = new Date();
+      const twoDaysAgo = new Date();
+      const fiveDaysAgo = new Date();
+      const sevenDaysAgo = new Date();
+      yesterday.setDate(today.getDate() - 1);
+      twoDaysAgo.setDate(today.getDate() - 2);
+      fiveDaysAgo.setDate(today.getDate() - 5);
+      sevenDaysAgo.setDate(today.getDate() - 7);
+
+      // Format the date as "Jan 19, 2025"
+      const options = { year: "numeric", month: "short", day: "numeric" };
+      const formattedDateToday = today.toLocaleDateString("en-US", options);
+      const formattedDateYesterday = yesterday.toLocaleDateString(
+        "en-US",
+        options
+      );
+      const formattedDateTwoDaysAgo = twoDaysAgo.toLocaleDateString(
+        "en-US",
+        options
+      );
+      const formattedDateFiveDaysAgo = fiveDaysAgo.toLocaleDateString(
+        "en-US",
+        options
+      );
+      const formattedDateSevenDaysAgo = sevenDaysAgo.toLocaleDateString(
+        "en-US",
+        options
+      );
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.documentElement.style.setProperty(
+          "--corso-primary",
+          "#" + brandColor
+        );
+
+        console.log("logo", brandLogo);
+
+        document.documentElement.style.setProperty(
+          "--corso-header-img-url",
+          `url("${brandLogo}")`
+        );
+
+        document.documentElement.style.setProperty(
+          "--corso-primary-on-container",
+          "#" + brandColor
+        );
+
+        const orderDate = document.getElementById("orderDate");
+        const deliveredOnDate = document.getElementById("deliveredOnDate");
+        const trackingHistoryDate = document.getElementById(
+          "trackingHistoryDate"
+        );
+        const trackingProductImage = document.getElementById(
+          "trackingProductImage"
+        );
+        const trackingProductName = document.getElementById(
+          "trackingProductName"
+        );
+        const trackingHistoryDate2 = document.getElementById(
+          "trackingHistoryDate2"
+        );
+        const trackingHistoryDate3 = document.getElementById(
+          "trackingHistoryDate3"
+        );
+        const emailAddressBrandName = document.getElementById(
+          "emailAddressBrandName"
+        );
+
+        orderDate.innerText = formattedDateSevenDaysAgo;
+        deliveredOnDate.innerText = formattedDateYesterday;
+        trackingHistoryDate.innerText = formattedDateYesterday;
+        trackingHistoryDate2.innerText = formattedDateTwoDaysAgo;
+        trackingHistoryDate3.innerText = formattedDateFiveDaysAgo;
+        trackingProductImage.src = productImage;
+        trackingProductName.innerText = productName;
+        emailAddressBrandName.innerText = storeName.replace(/\s+/g, "");
+
+        if (showProducts.some(num => [0].includes(num))) {
+          document.querySelectorAll("[data-next-page='portal-shipping-issue']").forEach(el => el.style.display = "block");
+          document.getElementById("hubShippingIssue").style.display = "grid";
+          document.querySelectorAll("[data-nav='shipping-issue']").forEach(el => el.style.display = "block");
+        }
+        if (showProducts.some(num => [1].includes(num))) {
+          document.querySelectorAll("[data-next-page='returns']").forEach(el => el.style.display = "block");
+          document.getElementById("hubReturnsAndWarranties").style.display = "grid";
+          document.querySelectorAll("[data-nav='return-admin']").forEach(el => el.style.display = "block");
+          document.querySelectorAll("[data-nav='return-portal']").forEach(el => el.style.display = "block");
+        }
+        if (showProducts.some(num => [2].includes(num))) {
+          document.querySelectorAll("[data-next-page='warranties']").forEach(el => el.style.display = "block");
+          document.getElementById("hubReturnsAndWarranties").style.display = "grid";
+          document.querySelectorAll("[data-nav='warranty-admin']").forEach(el => el.style.display = "block");
+          document.querySelectorAll("[data-nav='warranty-portal']").forEach(el => el.style.display = "block");
+        }
+
+      });
+    </script>
+
+    <div class="menu-nav"></div>
+
+    <div class="next-nav">
+      <div data-next-page="portal-shipping-issue" data-next-text="Shipping Issue" data-products="0" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M448 128L96 128L96 176L64 176L64 96L480 96L480 192L566.6 192L571.3 196.7L635.3 260.7L640 265.4L640 512L572.7 512C562.3 548.9 528.3 576 488 576C447.7 576 413.8 548.9 403.3 512L300.7 512C290.3 548.9 256.3 576 216 576C175.7 576 141.8 548.9 131.3 512L64 512L64 352L0 352L0 320L160 320L160 352L96 352L96 480L128.4 480C132.4 435.1 170.1 400 216 400C261.9 400 299.6 435.1 303.6 480L400.3 480C403.1 449.2 421.7 423 447.9 409.6L448 128zM64 256L0 256L0 224L224 224L224 256L64 256zM480 400.4C482.6 400.2 485.3 400 488 400C533.9 400 571.6 435.1 575.6 480L608 480L608 352L480 352L480 400.4zM608 278.6L553.4 224L480 224L480 320L608 320L608 278.6zM272 488C272 457.1 246.9 432 216 432C185.1 432 160 457.1 160 488C160 518.9 185.1 544 216 544C246.9 544 272 518.9 272 488zM544 488C544 457.1 518.9 432 488 432C457.1 432 432 457.1 432 488C432 518.9 457.1 544 488 544C518.9 544 544 518.9 544 488z"/></svg></div>
+      <div data-next-page="returns" data-next-text="Returns" data-products="1" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M203.3 548.7C209.5 554.9 209.5 565.1 203.3 571.3C197.1 577.5 186.9 577.5 180.7 571.3L68.7 459.3C62.5 453.1 62.5 442.9 68.7 436.7L180.7 324.7C186.9 318.5 197.1 318.5 203.3 324.7C209.5 330.9 209.5 341.1 203.3 347.3L118.6 432L560 432C568.8 432 576 439.2 576 448C576 456.8 568.8 464 560 464L118.6 464L203.3 548.7zM436.7 292.7L521.4 208L80 208C71.2 208 64 200.8 64 192C64 183.2 71.2 176 80 176L521.4 176L436.7 91.3C430.5 85.1 430.5 74.9 436.7 68.7C442.9 62.5 453.1 62.5 459.3 68.7L571.3 180.7C577.5 186.9 577.5 197.1 571.3 203.3L459.3 315.3C453.1 321.5 442.9 321.5 436.7 315.3C430.5 309.1 430.5 298.9 436.7 292.7z"/></svg></div>
+      <div data-next-page="warranties-reg" data-next-text="Warranty" data-products="2" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M320 64C356.1 64 388 82.1 407.1 109.6C440.1 103.6 475.5 113.4 501 138.9C526.5 164.4 536.3 199.8 530.3 232.8C557.9 252 576 283.9 576 320C576 356.1 557.9 388 530.4 407.1C536.4 440.1 526.6 475.5 501.1 501C475.6 526.5 440.2 536.3 407.2 530.3C388 557.9 356.1 576 320 576C283.9 576 252 557.9 232.9 530.4C199.9 536.4 164.5 526.6 139 501.1C113.5 475.6 103.7 440.2 109.7 407.2C82.1 388 64 356.1 64 320C64 283.9 82.1 252 109.6 232.9C103.6 199.9 113.4 164.5 138.9 139C164.4 113.5 199.8 103.7 232.8 109.7C252 82.1 283.9 64 320 64zM320 96C291.7 96 267 111.9 254.6 135.4C251 142.2 243.1 145.4 235.8 143.2C210.4 135.4 181.7 141.6 161.6 161.6C141.5 181.6 135.4 210.4 143.2 235.8C145.4 243.1 142.2 251 135.4 254.6C111.9 267 96 291.7 96 320C96 348.3 111.9 373 135.4 385.4C142.2 389 145.4 396.9 143.2 404.2C135.4 429.6 141.6 458.3 161.6 478.4C181.6 498.5 210.4 504.6 235.8 496.8C243.1 494.6 251 497.8 254.6 504.6C267 528.1 291.7 544 320 544C348.3 544 373 528.1 385.4 504.6C389 497.8 396.9 494.6 404.2 496.8C429.6 504.6 458.3 498.4 478.4 478.4C498.5 458.4 504.6 429.7 496.8 404.3C494.5 397 497.8 389.1 504.6 385.5C528.1 373.1 544 348.4 544 320.1C544 291.8 528.1 267.1 504.6 254.7C497.8 251.1 494.6 243.2 496.8 235.9C504.6 210.5 498.4 181.8 478.4 161.8C458.4 141.8 429.6 135.6 404.2 143.4C396.9 145.6 389 142.4 385.4 135.6C373 112.1 348.3 96.2 320 96.2zM387.1 234.2C392.3 227.1 402.3 225.5 409.4 230.7C416.5 235.9 418.1 245.9 412.9 253L307.3 398.2C304.5 402 300.2 404.4 295.5 404.7C290.8 405 286.2 403.3 282.9 399.9L228.5 343.6C222.4 337.2 222.5 327.1 228.9 321C235.3 314.9 245.4 315.1 251.5 321.4L292.7 364L387.1 234.2z"/></svg></div>
+      <div data-next-page="portal-edit" data-next-text="Order Editing" data-products="all"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M518.6 109.3L530.7 121.4C543.2 133.9 543.2 154.2 530.7 166.7L504 193.4L446.6 136L473.4 109.3C485.9 96.8 506.2 96.8 518.7 109.3zM253 329.6L424 158.7L481.4 216.1L310.4 387.1C306.2 391.3 300.8 394.3 295 395.7L229.4 410.8L244.5 345.2C245.8 339.4 248.8 334 253.1 329.8zM450.7 86.6L230.4 307C221.9 315.5 216 326.2 213.3 337.9L192.4 428.5C191.2 433.9 192.8 439.5 196.7 443.4C200.6 447.3 206.2 448.9 211.6 447.7L302.2 426.8C313.9 424.1 324.6 418.2 333.1 409.7L553.4 189.3C578.4 164.3 578.4 123.8 553.4 98.8L541.3 86.6C516.3 61.6 475.8 61.6 450.8 86.6zM144 128C99.8 128 64 163.8 64 208L64 496C64 540.2 99.8 576 144 576L432 576C476.2 576 512 540.2 512 496L512 368C512 359.2 504.8 352 496 352C487.2 352 480 359.2 480 368L480 496C480 522.5 458.5 544 432 544L144 544C117.5 544 96 522.5 96 496L96 208C96 181.5 117.5 160 144 160L272 160C280.8 160 288 152.8 288 144C288 135.2 280.8 128 272 128L144 128z"/></svg></div>
+    </div>
+
+    <script src="navigation.js"></script>
+  </body>
+</html>
